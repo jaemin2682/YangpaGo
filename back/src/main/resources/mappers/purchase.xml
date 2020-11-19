@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.papple.blog.repository.PurchaseRepository">
+	
+	<!-- 이메일로 구매내역 조회 -->
+	<select id="searchPurchaseByEmail" resultType="PurchaseProduct">
+		select email, product_id, pu.seller, pu.name, p.kg, pu.price, pu.amount, p.img
+		from purchase pu left join product p
+		on pu.product_id = p.id
+		where email = #{email};
+	</select>
+	
+	<!-- 구매내역 상품 등록 -->
+	<insert id="addPurchase">
+		INSERT INTO purchase (email, product_id, seller, name, kg, price, amount)
+		VALUES (#{email}, #{product_id}, #{seller}, #{name}, #{kg}, #{price}, #{amount});
+	</insert>
+	
+	<!-- 구매내역 상품 삭제 -->
+	<delete id="deletePurchase">
+		delete from purchase where product_id = #{productid} and email =#{email}
+	</delete>
+	
+	<!-- id컬럼 auto_increment 기능 -->
+	<select id="auto" resultType="Integer">
+		select id from user order by id desc limit 1
+	</select>
+	
+	<!-- 구매시 상품 score 증가 -->
+	<update id="increaseScore">
+		update product set score = score + 3 where id = #{id}
+	</update>
+	
+</mapper>
+

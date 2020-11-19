@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.papple.blog.repository.MainRepository">
+
+	<!-- 상품 검색 - 이름으로 -->
+	<select id="searchProductByName" resultType="ProductList">
+		select id, img, name, price, kg from product where name like concat('%', #{word}, '%') order by date desc limit #{page}, 10
+	</select>
+	
+	<!-- 스토어 검색 - 이름으로 -->
+	<select id="searchStoreByName" resultType="StoreList">
+		select s.email, s.store_name, u.nickname from store s join user u on s.email = u.email where s.store_name like concat('%', #{word}, '%')
+	</select>
+	
+	<!-- 이메일로 최근 본 상품 조회 -->
+	<select id="searchProductViewByEmail" resultType="ViewProduct">
+		select email, product_id, view_date, p.img, p.name
+		from product_view pr left join product p
+		on pr.product_id = p.id
+		where email = #{email}
+		order by view_date desc
+		limit 4;
+	</select>
+	
+	<!-- 이메일로 최근 본 레시피 조회 -->
+	<select id="searchRecipeViewByEmail" resultType="RecipeView">
+		select email, recipe_id, view_date, r.picture, r.name
+		from recipe_view rv left join recipe r
+		on rv.recipe_id = r.id
+		where email = #{email}
+		order by view_date desc
+		limit 4;
+	</select>
+	
+	<!-- b금 농산물 조회 -->
+	<select id="searchBProduct" resultType="ProductInfo">
+		select id, name, img, price, kg
+		from product
+		where status = "등급 외"
+		order by date desc
+		limit 3
+	</select>
+	
+	<!-- 모든 product 조회(6개) -->
+	<select id="searchAllProduct" resultType="ProductInfo">
+		select id, name, img, price, kg
+		from product
+		order by date desc
+		limit 6
+	</select>
+	
+	<!-- product 2개 조회 -->
+	<select id="searchTwoProduct" resultType="ProductInfo">
+		select id, name, img, price, kg
+		from product
+		where id not in (select product_id 
+						 from user_behavior 
+						 where user_id = #{userid})
+		limit 2
+	</select>
+	
+	<!-- product num개 조회 -->
+	<select id="searchNumProduct" resultType="ProductInfo">
+		select id, name, img, price, kg
+		from product
+		where id not in (select product_id 
+						 from user_behavior 
+						 where user_id = #{userid})
+		limit #{num}
+	</select>
+	
+	<!-- 시세보다 저렴한 상품 list Paging -->
+	<select id="CheaperProduct" resultType="Store_ProductInfo">
+		select id, img, name, price, kg from product 
+		where name like concat('%', #{type}, '%') and price <![CDATA[ <= ]]> #{price}
+		order by price
+	</select>
+</mapper>
+

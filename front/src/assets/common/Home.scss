@@ -1,0 +1,198 @@
+.banner {
+  background-color:#F2F2F2;
+  height: 320px;
+  .slides{
+    display: inline;
+    align-content: center;
+    align-items: center;
+    .slide{
+      .slide-content{
+        display: flex;
+        align-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+.banner-items {
+  margin-left: 220px;
+  background-color:#F2F2F2;
+  width: 922px;
+  height:200px;
+  padding-left: 95px;
+}
+.banner-item {
+  background-color:#F2F2F2;
+  float: left;
+  text-align:left;
+  width: 350px;
+  height: 250px;
+  margin-right: 50px;
+  padding: 12px;
+}
+.banner-item.discription {
+  font-size: 29px;
+  padding: 67px 67px 67px 60px;
+}
+.crop-name {
+  font-weight: 1000;
+}
+.crop-unit {
+  font-size: 18px;
+}
+.banner-graph {
+  margin-top: 20px;
+  width:290px;
+  height: 200px;
+}
+.main-container {
+  width: 60%;
+  margin: 0 auto 0 auto;
+  padding: 15px;
+}
+.recipes-container {
+  background-color: #fafafa;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  width: 892px;
+  height: 165px;
+}
+.recipes {
+  padding-top: 8px;
+  width: 892px;
+  height: 140px;
+}
+.recipe {
+  float: left;
+  height: 130px;
+  width: 140px;
+  margin-right: 10px;
+}
+.recipe-body {
+  border: 1px solid #BDBDBD;
+  box-shadow: 0px 1px 5px 0px #BDBDBD;
+  margin: 10px 0 10px 29px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 85px;
+  height: 85px;
+  text-align: center;
+}
+.recipe-footer {
+  text-align: center;
+  font-size: 14px;
+  width: 140px;
+  height: 16px;
+}
+.crops-icon {
+  margin-top: 14px;
+  width: 65%;
+  height: 65%;
+  object-fit: cover;
+}
+
+.more-img {
+  margin-top: 16px;
+  width: 50px;
+  height: 50px;
+  // object-fit: cover;
+}
+.crops-container {
+  margin-bottom: 40px;
+  width: 892px;
+  height: 280px;
+}
+.crops {
+  width: 892px;
+  height: 255px;
+  padding-top: 10px;
+  display: inline-flex;
+  .crop {
+    background-color:#fafafa;
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 1px 3px 0px #BDBDBD;
+    float: left;
+    margin-right: 20px;
+    width: 255px;
+    height: 240px;
+    
+  }
+  .more {
+    background-color:#fafafa;
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 1px 3px 0px #BDBDBD;
+    margin-top: 85px;
+    padding-top: 14px;
+    padding-left: 17px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    img {
+      width: 70%;
+      height: 70%;
+    }
+  }
+
+}
+.items-container {
+  width: 100%;
+  height: auto;
+}
+.items {
+  width: 100%;
+  height: 220px;
+  height: 220px;
+  padding-top: 5px;
+}
+.item {
+  background-color:#fafafa;
+  border: 1px solid #BDBDBD;
+  box-shadow: 0px 1px 3px 0px #BDBDBD;
+  float: left;
+  margin-right: 12px;
+  width: 211px;
+  height: 211px;
+}
+
+
+//배너
+.vueperslides__bullet .default {
+  background-color: #a7496d;
+  border: none;
+  box-shadow: none;
+  transition: 0.3s;
+  width: 16px;
+  height: 16px;
+}
+
+.vueperslides__bullet--active .default {background-color: #42b983; color:#a7496d;}
+
+.vueperslides__bullet span {
+  display: block;
+  color: #a7496d;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.vueperslides__progress{
+  background:  #a7496d;
+  color: #a7496d;
+}
+
+.vueperslides__bullet .default {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  box-shadow: none;
+  transition: 0.3s;
+  width: 16px;
+  height: 16px;
+}
+
+.vueperslides__bullet--active .default {background-color: #42b983;}
+
+.vueperslides__bullet span {
+  display: block;
+  color: #fff;
+  font-size: 10px;
+  opacity: 0.8;
+}

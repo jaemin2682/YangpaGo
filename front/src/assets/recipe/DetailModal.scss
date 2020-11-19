@@ -1,0 +1,113 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    ::-webkit-scrollbar{display: none;} //스크롤바 숨기기
+    .modal-content {
+        position: absolute;
+        top: 50px;
+        width: 70%;
+        height: 75%;
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        float:left;
+        overflow-y:auto;
+        .recipe-body{
+          position: relative;
+          padding: 16px 26px;
+          float: left;
+          width:50%;
+          overflow-y: initial !important;
+          -ms-overflow-style: none;
+          ::-webkit-scrollbar{display: none;}
+          .recipe-title{
+            padding: 20px 0px;
+            .pick-btn{
+              position: absolute;
+              top: 0px;
+              right:0px;
+              img{
+                width: 50px;
+              }
+            }
+            .unpick-btn{
+              position: absolute;
+              top: 0px;
+              right:0px;
+              img{
+                width: 50px;
+              }
+            }
+          }
+          .recipe-needs{
+            padding: 20px 0px;
+            .recipe-subtitle{
+              padding: 10px 0px;
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          .recipe-steps{
+            padding: 20px 0px;
+            .recipe-subtitle{
+              padding: 10px 0px;
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          .recipe-products{
+            .recipe-subtitle{
+              padding: 10px 0px;
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          .recipe-recommends{
+            .recipe-subtitle{
+              padding: 10px 0px;
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+        }
+        .recipe-img{
+          float: left;
+          max-width:50%;
+          max-height: 100%;
+          overflow: hidden;
+        }
+    }
+    .closeModalBtn{
+       z-index: 13;
+        position: absolute;
+        top: 700px;
+    }
+}
+
+label {
+    display: block;
+    margin: 0.25em 0;
+  }
+  
+button {
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0.5em 1em;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #999;
+    border: transparent;
+    background-color: #e6e6e6;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+    z-index: 15;
+  }
+  

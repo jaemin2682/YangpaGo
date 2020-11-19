@@ -1,0 +1,97 @@
+.item-container{
+    height: 120px;
+    padding:10px;
+    width:100%;
+    overflow: hidden;
+    border-bottom : 0.5px solid lightgray;
+    .item-select{
+        padding:10px;
+        height: 100%;
+        float: left;
+        .item-input{
+            margin: 0 auto 0 auto;
+            padding-top:20px;
+        }
+    }
+    .item-img-container{
+        height: 100%;
+        float: left;
+        img{
+            max-width: 100px;
+        }
+    }
+    .item-body{
+        position: relative;
+        display: list-item;
+        height: 100%;
+        float: left;
+        text-align: left;
+        padding: 10px;
+        .item-option{
+            position: absolute;
+            display: inline-flex;
+            vertical-align: bottom;
+            bottom:10px;
+        }
+    }
+    .item-price-container{
+        border-left: 0.5px solid lightgray;
+        height: 100%;
+        float: right;
+        width: 250px;
+        align-items: center;
+        .item-price{
+            position: relative; 
+            height: 50%;
+            width:100%;
+            text-align: center;
+            .price{
+                display: inline-flex;
+                padding-top:20px;
+                text-align: center;
+                .price-only{
+                    font-weight: bolder;
+                    font-size:20px;
+                }
+                .won{
+                    padding-top:3px;
+                }
+            }
+        }
+        .item-num-counter-container{
+            height: 50%;
+            width:100%;
+            padding:10px;
+            text-align: center;
+            padding-left: 80px;
+            .item-num-counter{
+                overflow: hidden;
+                height:30px;
+                width: 90px;
+                border: 0.5px solid lightblue;
+                padding: 5px;
+                .counter-down-btn{
+                    float: left; 
+                    width:20px;
+                    img{
+                        max-width:10px;
+                        transform: rotate(180deg);
+                    }
+                }
+                .item-num{
+                    float: left; 
+                    text-align: center;
+                    width:35px;
+                }
+                .counter-up-btn{
+                    float: right;
+                    width:20px;
+                    img{
+                        max-width:10px;
+                    }
+                }
+            }
+        }
+
+    }
+}

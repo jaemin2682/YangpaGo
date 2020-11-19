@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.papple.blog.repository.UserLikeRepository">
+	
+	<!-- 이메일로 좋아요 조회 -->
+	<select id="searchUserLikeById" resultType="UserLike">
+		select user_id, product_id, img
+		from user_like u left join product p
+		on u.product_id = p.id
+		where user_id = #{userid};
+	</select>
+	
+	<!-- 좋아요 상품 등록 -->
+	<insert id="addUserLike">
+		INSERT INTO user_like (user_id, product_id)
+		VALUES (#{user_id}, #{product_id});
+	</insert>
+	
+	<!-- 좋아요 상품 삭제 -->
+	<delete id="deleteUserLike">
+		delete from user_like where product_id = #{productid} and user_id = #{userid}
+	</delete>
+	
+	<!-- id컬럼 auto_increment 기능 -->
+	<select id="auto" resultType="Integer">
+		select id from user order by id desc limit 1
+	</select>
+	
+</mapper>
+

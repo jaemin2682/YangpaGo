@@ -1,0 +1,53 @@
+.info{
+    width:100%;
+    padding:20px;
+    text-align: left;   
+    .seller-info{
+            margin-top: 30px;
+            text-align:left;
+            .seller-info-table{
+                margin-top: 20px;
+                tr{
+                    height: 30px;
+                }
+                th{
+                    width: 150px;
+                }
+            }
+    }
+    .store-info{
+            table{
+                margin-top: 10px;
+                margin-bottom: 30px;
+                tr:first-child{
+                    height: 200px;
+                }
+                td{
+                    width: 300px;
+                    align-items: center;
+                    text-align: center;
+                    vertical-align: middle;
+                    img{
+                        width: 120px;
+                        height: 120px;
+                    }
+                }
+            }
+    }
+    .store-guideline{
+            padding:20px;
+            width:100%;
+            background-color: lightgray;
+            p{
+                margin:5px;
+            }
+    }
+
+}
+
+
+
+/*main-common*/
+.title{
+margin-bottom: 10px;
+}

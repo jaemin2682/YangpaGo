@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.papple.blog.repository.StoreRepository">
+
+	<!-- 스토어 정보 창 -->
+	<select id="searchStoreInfo" resultType="StoreInfoGet">
+		select s.email, s.store_name, s.rep_name, s.type, s.number, s.tell, s.origin, s.address, u.nickname from store s join user u on s.email = u.email
+		where s.email = #{email}
+	</select>
+	
+	<!-- 평점 평균 -->
+	<select id="searchStoreScore" resultType="Object">
+		select avg(score) from review where product_id in (select id from product where seller = #{email})
+	</select>
+	
+	<!-- 리뷰 1~5점 개수 -->
+	<select id="getReviewCount" resultType="Integer">
+		select count(score) from review where score = #{score} and product_id in (select id from product where seller = #{email})
+	</select>
+	
+	<!-- 인기 상품 list Paging -->
+	<select id="PopularProduct" resultType="Store_ProductInfo">
+		select id, img, name, price, kg from product where seller = #{email} order by score desc limit #{page}, 10
+	</select>
+	
+	<!-- 시세보다 저렴한 상품 list Paging -->
+	<select id="CheaperProduct" resultType="Store_ProductInfo">
+		select id, img, name, price, kg from product 
+		where seller = #{email} and name like concat('%', #{type}, '%') and price <![CDATA[ <= ]]> #{price}
+		order by price
+	</select>
+	
+	<!-- 스토어 추천 상품 -->
+	<select id="searchAllProduct" resultType="Store_ProductInfo">
+		select id, name, img, price, kg
+		from product
+		where seller = #{email}
+	</select>
+	
+	<!-- 인기 상품 list -->
+	<select id="PopularProductAll" resultType="Store_ProductInfo">
+		select id, img, name, price, kg from product where seller = #{email} order by score desc
+	</select>
+	
+	<!-- 전체 상품 list -->
+	<select id="allProduct" resultType="Store_ProductInfo">
+		select id, img, name, price, kg from product join store on email = seller
+		where email = #{email}
+		order by date desc
+		limit #{page}, 10
+	</select>
+	
+	<!-- 베스트 리뷰 list -->
+	<select id="bestReview" resultType="BestReview">
+		select p.id, p.img, p.name, p.price, p.kg, r.score, r.content, r.path from product p join review r on p.id = r.product_id
+		where p.id in (select id from product where seller = #{email})
+		order by r.score desc, length(r.content) desc
+	</select>
+	
+	<!-- 스토어 추가 -->
+	<insert id="addStore">
+		insert store(email, store_name, rep_name, type, number, tell, origin, address)
+		values(#{email}, #{store_name}, #{rep_name}, #{type}, #{number}, #{tell}, #{origin}, #{address})
+	</insert>
+	
+	<!-- 스토어 정보 수정 -->
+	<update id="modifyStore">
+		update store set store_name = #{store_name}, rep_name = #{rep_name}, type = #{type}, number = #{number}, tell = #{tell}, origin = #{origin}, address = #{address}
+		where email = #{email}
+	</update>
+	
+	<!-- 해당 스토어 리뷰 전체 개수 -->
+	<select id="reviewCount" resultType="Integer">
+		select count(*) from (review r join product p on r.product_id = p.id) join store s on p.seller = s.email where s.email = #{email};
+	</select>
+	
+	<!-- 해당 스토어에서 긍정 리뷰 개수 -->
+	<select id="positiveReviewCount" resultType="Integer">
+		select count(*) from (review r join product p on r.product_id = p.id) join store s on p.seller = s.email where s.email = #{email} and review_percent >= 70;
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.papple.blog.repository.ProductRepository">
+
+	<!-- 모든 product 조회(목록) -->
+	<select id="searchAllProduct" resultType="Product">
+		select id, seller, name, kg, price, img, content, isb, status, delevery_method, delevery_location, origin, date, law_origin, keep_method, score
+		from product
+		order by date desc
+	</select>
+	
+	<!-- 상품 이름으로 조회 -->
+	<select id="searchByName" resultType="Product">
+		select id, seller, name, kg, price, img, content, isb, status, delevery_method, delevery_location, origin, date, law_origin, keep_method, score
+		from product
+		where name LIKE CONCAT('%', #{name}, '%')
+		order by date desc
+	</select>
+	
+	<!-- 상품 아이디로 조회 -->
+	<select id="searchById" resultType="Product">
+		select id, seller, name, kg, price, img, content, isb, status, delevery_method, delevery_location, origin, date, law_origin, keep_method, score
+		from product
+		where id = #{id}
+		order by date desc
+	</select>
+	
+	<!-- 상품 상태로 조회 -->
+	<select id="searchByStatus" resultType="Product">
+		select id, seller, name, kg, price, img, content, isb, status, delevery_method, delevery_location, origin, date, law_origin, keep_method, score
+		from product
+		where status = #{status}
+		order by date desc
+	</select>
+	
+	<!-- 상품 등록 -->
+	<insert id="addProduct" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO product (seller, name, kg, price, img, content, isb, status, delevery_method, delevery_location, delevery_price, life_time, origin, law_origin, keep_method, score)
+		VALUES (#{seller}, #{name}, #{kg}, #{price}, #{img}, #{content}, #{isb}, #{status}, #{delevery_method}, #{delevery_location}, #{delevery_price}, #{life_time}, #{origin}, #{law_origin}, #{keep_method}, #{score});
+	</insert>
+	
+	<!-- 상품 삭제 -->
+	<delete id="delete">
+		delete from product where id = #{id}
+	</delete>
+	
+	<!-- 상품 수정 -->
+	<update id="update">
+		update product
+		set seller = #{seller}, name = #{name}, price = #{price}, content = #{content}, isb = #{isb},
+			status = #{status}, delevery_method = #{delevery_method}, delevery_location = #{delevery_location},
+			origin = #{origin}, law_origin = #{law_origin}, keep_method = #{keep_method}, img = #{img}
+		where id = #{id}
+	</update>
+	
+	<!-- 아이디로 상품 사진 조회 -->
+	<select id="searchPictureById" resultType="ProductPicture">
+		select product_id, path
+		from product_picture
+		where product_id = #{id}
+	</select>
+	
+	<!-- 상품 이미지 등록 -->
+	<insert id="addProductPicture">
+		INSERT INTO product_picture (product_id, path)
+		VALUES (#{product_id}, #{path});
+	</insert>
+	
+	<!-- 상품 사진 삭제 -->
+	<delete id="deletePicture">
+		delete from product_picture where product_id = #{id}
+	</delete>
+	
+	<!-- 상품 사진 수정 -->
+	<update id="updatePicture">
+		update product_picture
+		set product_id = #{product_id}, path = #{path}
+		where product_id = #{product_id}
+	</update>	
+	
+	<!-- id컬럼 auto_increment 기능 -->
+	<select id="auto" resultType="Integer">
+		select id from user order by id desc limit 1
+	</select>
+	
+	<!-- 베스트 리뷰 1개 -->
+	<select id="bestReviewOne" resultType="BestReviewOne">
+		select email, content, score, path review_img
+		from review
+		where product_id = #{product_id}
+		order by score desc, review_percent desc, length(path) desc, length(content) desc
+		limit 1
+	</select>
+	
+	<!-- 리뷰 리스트 -->
+	<select id="ReviewListProductDetail" resultType="ReviewByProductDetail">
+		select u.nickname, r.content, r.path, r.score, r.review_percent analysis_result
+		from review r join user u on r.email = u.email
+		where r.product_id = #{product_id}
+		order by r.created_date desc
+	</select>
+	
+
+</mapper>
+

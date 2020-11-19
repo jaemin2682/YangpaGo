@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.papple.blog.repository.MyInfoRepository">
+
+	<!-- 내 정보 검색 -->
+	<select id="searchInfo" resultType="MyInfo">
+		select type, email from user where email = #{email}
+	</select>
+	
+	<select id="searchIsStore" resultType="Integer">
+		select count(*) from store where email = #{email}
+	</select>
+	
+	<!-- 최근 본 상품 리스트 -->
+	<select id="searchRecentProduct" resultType="RecentProductList">
+		select p.id, p.name, p.price, p.img, p.kg, s.store_name from (product_view v join product p on v.product_id = p.id)
+		join store s on p.seller = s.email
+		where v.email = #{email}
+		order by view_date desc
+	</select>
+	
+	<!-- 찜한 상품 리스트 -->
+	<select id="searchGoodProduct" resultType="RecentProductList">
+		select p.id, p.name, p.price, p.img, p.kg, s.store_name
+		from user_like l join product p on l.product_id = p.id 
+		join store s on p.seller = s.email 
+		where l.user_id = (select id from user where email = #{email})
+		order by like_date desc
+	</select>
+	
+	<!-- 주문전체 -->
+	<select id="orderCountAll" resultType="Integer">
+		select count(*) from purchase where email = #{email}
+	</select>
+	
+	<!-- 리뷰 작성 개수 -->
+	<select id="reviewCount" resultType="Integer">
+		select count(*) from purchase p join review r on p.product_id = r.product_id and p.email = r.email where p.email = #{email}
+	</select>
+	
+	<!-- 구매한 상품 리스트 -->
+	<select id="purchaseList" resultType="PurchaseProductList">
+		select p.id, p.name, p.price, p.img, p.kg, s.store_name, c.amount from (purchase c join product p on c.product_id = p.id)
+		join store s on p.seller = s.email
+		where c.email = #{email}
+		order by purchase_date desc
+	</select>
+	
+	<!-- 리뷰 썼는지 -->
+	<select id="isReview" resultType="Integer">
+		select count(*) from review where email = #{email} and product_id = #{product_id}
+	</select>
+	
+
+</mapper>
+

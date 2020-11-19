@@ -1,0 +1,39 @@
+@import "@/assets/_variables.scss";
+
+.recipe-header-container{
+    overflow: hidden;
+    width: 60%;
+    padding: 0px;
+    min-height: 10vh;
+    z-index: 1000;
+    margin: 0 auto 0 auto;
+    padding-top: 70px;
+    padding-bottom: 5px;
+    background-color: #FAFAFA;
+    vertical-align: bottom;
+    .recipe-subtitle{
+        width:100%;
+        text-align: left;
+        margin-bottom: 10px;
+        p{
+            font-size: 13px;
+        }
+    }
+    .recipe-title{
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+      overflow-wrap: break-word;
+      width:100%;
+      text-align: left;
+      p{
+          color: #a7496d;
+      }
+    }
+}
+

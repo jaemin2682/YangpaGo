@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.papple.blog.repository.RecipeRepository">
+
+	<!-- 레시피 전체 목록 가져오기 -->
+	<select id="searchRecipeAll" resultType="RecipeInfo">
+		select id, name, picture from recipe order by id limit #{page}, 10
+	</select>
+	
+	<!-- 인기게시물 점수 로직 - 조회수 + 담긴 수 * 3 -->
+	<select id="searchPopularRecipe" resultType="RecipeInfo">
+		select id, name, picture from recipe order by view+score*3 desc limit #{page}, 10
+	</select>
+	
+	<!-- 인기게시물 전체 조회 : 100개만 -->
+	<select id="searchPopularRecipeAll" resultType="RecipeInfo">
+		select id, name, picture from recipe order by view+score*3 desc limit 100
+	</select>
+
+	<!-- 레시피 상세 - 레시피 기본 정보 -->
+	<select id="searchRecipeBasic" resultType="RecipeDetail">
+		select id, name, picture, type from recipe where id = #{id}
+	</select>
+	
+	<!-- 레시피 상세 - 레시피 재료 정보 -->
+	<select id="searchRecipeIngredient" resultType="com.papple.blog.models.Recipe_Ingredient">
+		select * from recipe_ingredient where recipe_id = #{id}
+	</select>
+	
+	<!-- 레시피 상세 - 레시피 조리 과정 정보 -->
+	<select id="searchRecipeStep" resultType="com.papple.blog.models.Recipe_Step">
+		select * from recipe_step where recipe_id = #{id}
+	</select>	
+	
+	<!-- My CookBook에 추가 -->
+	<insert id="insertMyRecipe">
+		insert into my_recipe(email, recipe_id) values(#{email}, #{id})
+	</insert>
+	
+	<!-- My CookBook에서 삭제 -->
+	<delete id="deleteMyRecipe">
+		delete from my_recipe where email = #{email} and recipe_id = #{id}
+	</delete>
+	
+	<!-- My Book List -->
+	<select id="searchMyRecipe" resultType="RecipeInfo">
+		select id, name, picture from recipe where id in (select recipe_id from my_recipe where email = #{email})
+	</select>
+	
+	<!-- Recipe_View에 기록 -->
+	<insert id="insertRecipeView">
+		insert recipe_view(email, recipe_id) values(#{email}, #{id})
+	</insert>
+	
+	<!-- 관련 상품 4개 추천 -->
+	<select id="relativeProduct" resultType="RecipeInfo">
+		select id, name, img from product where name like concat(concat('%', (select type from recipe where id = #{id})), '%') limit 4
+	</select>
+	
+	<!-- Recipe 점수 1점 증가 -->
+	<update id="upScoreOne">
+		update recipe set score = score + 1 where id = #{id}
+	</update>
+	
+	<!-- Recipe 점수 3점 증가 -->
+	<update id="upScoreThree">
+		update recipe set score = score + 3 where id = #{id}
+	</update>
+	
+	<!-- 레시피 이름으로 검색 -->
+	<select id="search" resultType="RecipeInfo">
+		select id, name, picture from recipe where name like concat(concat('%', #{word}), '%') limit #{page}, 10
+	</select>
+	
+	<!-- MyBook에 추가한 상품인지 확인 -->
+	<select id="isGood" resultType="Integer">
+		select count(*) from my_recipe where email = #{email} and recipe_id = #{id}
+	</select>
+	
+	
+</mapper>

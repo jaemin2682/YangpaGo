@@ -1,0 +1,11 @@
+@import "@/assets/_variables.scss";
+
+.container-item {
+    div{
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        flex-basis: auto;
+        align-content: flex-start;
+    }
+}

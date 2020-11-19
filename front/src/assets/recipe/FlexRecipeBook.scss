@@ -1,0 +1,11 @@
+@import "@/assets/_variables.scss";
+
+.container-item {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  flex-basis: auto;
+  height: 550px;
+  align-content: flex-start; /*시작축 정렬*/
+}

@@ -1,0 +1,52 @@
+.container-home{
+    width:100%;
+    text-align: left;
+    padding:20px;
+    .title{
+        padding-bottom: 20px;
+        border-bottom: 0.5px solid lightgray;
+    }
+    .order-info{
+        height: 200px;
+        border-bottom: 0.5px solid lightgray;
+        .container{
+            padding-top:70px;
+            height: 200px;
+            width: 25%;
+            float: left;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            div{
+                flex-grow: 0;
+            }
+            .text{
+                font-size: 1.3rem;
+                font-weight: bolder;
+                padding-bottom: 10px;
+            }
+            .number{
+                font-size: 1.2rem;
+                font-weight: bolder;
+            }
+        }
+        .review-written{
+            border-left: 0.5px solid lightgray;
+            border-right: 0.5px solid lightgray;
+        }
+    }
+    .date-container{
+        display: inline-flex;
+        padding:10px;
+        .date1-picker{
+            width: 100px;
+        }
+        .date2-picker{
+            width: 100px;
+        }
+        button{
+            width: 100px;
+        }
+    }
+
+}

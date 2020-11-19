@@ -1,0 +1,85 @@
+.navbar-container{
+    float: left;
+    width: 20%;
+    height: 1000px;
+    margin-right: 10px;
+    .navbar-body{
+        width: 100%;
+        .navbar-item{
+            height: 50px;
+            position: relative;
+            a, a:visited, a:hover{
+                position: absolute;
+                top:30%;
+                left:10%
+            }
+        }
+    }
+}
+
+store-guideline{
+    padding:20px;
+    background-color: lightgray;
+    width: 100%;
+    p{
+        margin:5px;
+    }
+}
+
+  a, a:visited {
+    outline: none;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  nav{
+    display: block;
+  }
+  
+  nav{
+      display:inline-block;
+      box-shadow:0 1px 1px #ccc;
+      border-radius:2px;
+  }
+
+  nav a{
+    width: inherit;
+    display:inline-block;
+    color:black !important;
+    font-weight:bold;
+    font-size:16px;
+    text-decoration:none !important;
+    line-height:1;
+    text-transform: uppercase;
+    background-color:transparent;
+    vertical-align: middle;
+
+    -webkit-transition:background-color 0.25s;
+    -moz-transition:background-color 0.25s;
+    transition:background-color 0.25s;
+}
+
+nav a:first-child{
+    border-radius:2px 0 0 2px;
+}
+
+nav a:last-child{
+    border-radius:0 2px 2px 0;
+}
+
+nav.all .all,
+nav.over .over,
+nav.bgrade .bgrade,
+nav.price .price{
+    background-color : lightgray;
+}
+
+/*search*/
+.store-search{
+    margin:10px;
+    input{
+        height: 40px;
+        width: 80%;
+        border-radius: 20px;
+    }
+}

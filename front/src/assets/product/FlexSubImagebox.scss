@@ -1,0 +1,11 @@
+.container-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    flex-basis: auto;
+    flex-grow: 0;
+    .sub-image-box{
+        width: 20%;
+        padding: 5px;
+    }
+}

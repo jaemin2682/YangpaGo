@@ -1,0 +1,19 @@
+.store-item{
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    width: 47%;
+    padding: 20px;
+    .picture-item{
+        overflow: hidden;
+        width: 100%;
+        height: 110px;
+        img{
+            width: 100%;
+        }
+    }
+    .body-item{
+        font-size: 0.8rem;
+    }
+}

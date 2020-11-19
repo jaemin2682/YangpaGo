@@ -1,0 +1,26 @@
+.container-content{
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid black;
+    width: 100%;
+    .container-item{
+        float: left;
+        overflow: scroll;
+        height: 100%;
+        width: 20%;
+        padding : 10px;
+        p{
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+    }
+    .container-graph{
+        float: left;
+        overflow: clip;
+        width: 80%;
+        padding: 40px;
+        .graph{
+            height: 20%;
+        }
+    }
+}

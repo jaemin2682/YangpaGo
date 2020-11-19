@@ -1,0 +1,139 @@
+@import "@/assets/_variables.scss";
+
+/*storeMain*/
+.store-container{
+    overflow: hidden;
+    width: 60%;
+    padding: 0px;
+    min-height: 10vh;
+    z-index: 0;
+    margin: 0 auto 0 auto;
+    padding-bottom: 5px;
+    vertical-align: bottom;
+    
+    .main-container{
+        float: left;
+        overflow: hidden;
+        display: flex;
+        padding : 20px;
+        text-align:left;
+        width: 80%;
+        .home{
+            .home-price{
+                .home-price-item{
+                    overflow: hidden;
+                    .flexitems{
+                        width: 80%;
+                        float: left;
+                    }
+                    .more{
+                        width: 20%;
+                        float: left;
+                        position: relative;
+                        img{
+                            border:1px solid black;
+                            border-radius: 100px;
+                            width: 50px;   
+                            padding: 20px;
+                            top: 150px;
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+            .home-review{
+                .home-review-item{
+                    overflow: hidden;
+                    .flexitems{
+                        width: 80%;
+                        float: left;
+                    }
+                    .more{
+                        width: 20%;
+                        float: left;
+                        position: relative;
+                        img{
+                            border:1px solid black;
+                            border-radius: 100px;
+                            width: 50px;   
+                            padding: 20px;
+                            top: 50px;
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+        }
+        .info{
+            float: left;
+            width: 100%;
+            .seller-info{
+                margin-top: 30px;
+                text-align:left;
+                .seller-info-table{
+                    margin-top: 20px;
+                    tr{
+                        height: 30px;
+                    }
+                    th{
+                        width: 150px;
+                    }
+                }
+            }
+            .store-info{
+                table{
+                    margin-top: 10px;
+                    margin-bottom: 30px;
+                    tr:first-child{
+                        height: 200px;
+                    }
+                    td{
+                        width: 300px;
+                        align-items: center;
+                        text-align: center;
+                        vertical-align: middle;
+                        img{
+                            width: 120px;
+                            height: 120px;
+                        }
+                    }
+                }
+            }
+            .store-guideline{
+                padding:20px;
+                background-color: lightgray;
+                width: 100%;
+                p{
+                    margin:5px;
+                }
+            }
+        }
+        .price{
+            width: 100%;
+            .price-graph-container{
+                .price-graph-title{
+                    margin-top:30px;
+                    margin-left: 5px;
+                    margin-bottom: 10px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+.store-guideline{
+    padding:20px;
+    background-color: lightgray;
+    width: 100%;
+    p{
+        margin:5px;
+    }
+}
+
+ 
+
+/*main-common*/
+.title{
+    margin-bottom: 10px;
+}

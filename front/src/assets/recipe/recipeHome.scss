@@ -1,0 +1,24 @@
+.container-home{
+    width:100%;
+    text-align: left;
+    padding:20px;
+    .recommend{
+        width:100%;
+        padding-top:10px;
+        .subtitle{
+            margin-top:10px;
+            width:100%;
+            padding-left: 20px;
+            font-size:18px;
+        }
+    }
+    .popular{
+        width:100%;
+        .subtitle{
+            margin-top:10px;
+            width:100%;
+            padding-left: 20px;
+            font-size:18px;
+        }
+    }
+}

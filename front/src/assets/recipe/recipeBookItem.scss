@@ -1,0 +1,25 @@
+.recipe-book-item{
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    width: 30%;
+    height : 220px;
+    padding : 20px 10px;
+    overflow: hidden;
+    .picture-item{
+        overflow: hidden;
+        width:90%;
+        height: 60%;
+        // max-height: 130px;
+        img{
+            min-width: 100%;
+            min-height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .body-item{
+        padding : 10px;
+    }
+}

@@ -1,0 +1,72 @@
+.price{
+    width:100%;
+    padding:20px;
+    text-align: left;
+    .price-graph-container{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        .price-graph-title{
+            width:100%;
+            margin-top:30px;
+            margin-left: 5px;
+            margin-bottom: 10px;
+            font-size: 1.0rem;
+        }
+        .price-graph-text{
+            margin: 20px 10px;
+            width:100%;
+            display: inline-flex;
+            align-items: baseline;
+            font-size: 1.2rem;
+            font-weight: bolder;
+            .category{
+                font-size: 1.5rem;
+                color:#a7496d;
+            }
+        }
+        .price-graph-box{
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            box-shadow: 0px 0px 3px;
+            width: 100%;
+            display: inline-flex;
+            .container-item{
+                height: 100%;
+                width: 10%;
+                font-size: 1.2rem;
+                overflow: scroll;
+                div{
+                    text-align: center;
+                    border-bottom: 0.5px solid lightgray;
+                }
+            }
+            .container-graph{
+                width:90%;
+                height: 100%;
+                .banner-graph {
+                    padding:10px;
+                    margin-top: 20px;
+                    width:100%;
+                    height: 90%;
+
+                }
+            }
+        }
+    }
+    .subtitle{
+        margin: 20px 10px;
+        font-size: 1.2rem;
+        font-weight: bolder;
+    }
+}
+
+.store-guideline{
+    padding:20px;
+    background-color: lightgray;
+    width: 100%;
+    p{
+        margin:5px;
+    }
+}

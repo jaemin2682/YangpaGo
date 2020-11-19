@@ -1,0 +1,18 @@
+.container-home{
+    width:100%;
+    text-align: left;
+    padding:20px;
+    .info-table{
+        tr{
+            height: 30px;
+            th{
+                width: 100px;
+            }
+        }
+    }
+    button{
+        border:1px solid gray;
+        width: 100px;
+        height: 30px;
+    }
+}

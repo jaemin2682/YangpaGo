@@ -1,0 +1,36 @@
+@import "@/assets/_variables.scss";
+
+.container-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  font-size: smaller;
+  .step{
+    margin : 10px 0px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    border-radius: 2%;
+    width: 100%;
+    padding : 5px 0px;
+    overflow: hidden;
+    clear: both;
+    .itemIdx{
+        width:5%;
+        float: left;
+        writing-mode: vertical-rl;
+        text-align: end;
+        vertical-align: top;
+        transform: rotate(180deg);
+        color: #a7496d;
+    }
+    .item{
+        padding-left: 20px;
+        width:90%;
+        text-align: left;
+        font-size:17px;
+        float: left;
+    }
+  }
+}

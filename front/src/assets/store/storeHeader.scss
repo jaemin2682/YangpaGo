@@ -1,0 +1,59 @@
+@import "@/assets/_variables.scss";
+
+.store-header-container{
+    overflow: hidden;
+    width: 60%;
+    padding: 0px;
+    min-height: 10vh;
+    z-index: 1000;
+    margin: 0 auto 0 auto;
+    padding-top: 70px;
+    padding-bottom: 5px;
+    background-color: #FAFAFA;
+    vertical-align: bottom;
+    display: inline-block;
+    .store-title{
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+      overflow-wrap: break-word;
+      float: left;
+      min-width: 200px;
+      p{
+          color: #a7496d;
+      }
+    }
+    .store-info-container{
+        position: relative;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        font-size: 1.0rem;
+        margin-bottom: 5px;
+        overflow-wrap: break-word;
+        float: left;
+        min-width: 400px;
+        padding-top: 10px;
+        p{
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            font-size: 1.0rem;
+            overflow-wrap: break-word;
+            float: left;
+            min-width: 100px;
+        }
+    }
+}
+
